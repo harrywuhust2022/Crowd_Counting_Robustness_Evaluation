@@ -45,6 +45,7 @@ if __name__ == "__main__":
     min_mae = sys.maxsize
     min_mae_epoch = -1
     train_loss = 0.0
+    Loss_list = []
     for epoch in range(1, cfg.epochs):  # start training
         model.train()
         epoch_loss = 0.0
@@ -63,7 +64,9 @@ if __name__ == "__main__":
             loss.backward()  # back propagation
             optimizer.step()  # update network parameters
 
+        # 记录train_loss
         train_loss = epoch_loss/len(train_dataloader)
+        Loss_list.append(train_loss)
 
         if epoch % 100 == 0:
             save_name = os.path.join(output_dir, '{}_{}_{}.h5'.format(method, dataset_name, epoch))
@@ -125,7 +128,7 @@ if __name__ == "__main__":
                     mse += (gt_count - et_count) * (gt_count - et_count)
 
                     bias = abs(gt_count - et_count)
-                    if bias < 5:
+                    if bias < 10:
                         correct += 1
                     total += 1
 
@@ -150,4 +153,12 @@ if __name__ == "__main__":
                     file_handle.write('\n')
                     file_handle.write(str(accuracy))
                 file_handle.close()
+
+    # 记录train_loss
+    train_loss_txt = open('train_loss.txt', 'w')
+    for value in Loss_list:
+        train_loss_txt.write(str(value))
+        train_loss_txt.write('\n')
+    train_loss_txt.close()
+
 
