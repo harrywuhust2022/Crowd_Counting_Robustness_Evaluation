@@ -25,3 +25,5 @@ Please run the python file Val_CSR_mae.py
 ## How to Retrain the Crowd Counting Models?
 Please run the python file csr_certify_train.py
 
+## Want to Gain the Certificate Retrained Models?
+[Baidu Disk](https://pan.baidu.com/s/1u3-HrWxa82RRcYUsznkjQw)(code:hary)
