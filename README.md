@@ -1,6 +1,9 @@
 # Evaluating the Robustness of Crowd Counting Models via Adversarial Patch Attacks and Randomized Ablation
 This is the official implementation code of paper submitted to IEEE Transactions on Information Forensics and Security.
 
+We are the first work to evaluate the adversarial robustness of crowd counting both theoretically and empirically.
+
+
 ## Requirement
 1. Install pytorch 1.0.0+
 
